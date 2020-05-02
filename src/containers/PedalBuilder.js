@@ -1,21 +1,10 @@
 import React, {useState} from 'react';
 import './PedalBuilder.css';
 import Pedal from '../components/Pedal';
+import ComponentBlockList from '../components/ComponentBlockList';
 
 
 
-function ComponentList(props) {
-  return (
-    <ul>
-          <li><p onClick={props.openModal}>Colors</p></li>
-          <li><p>Cases</p></li>
-          <li><p>Knobs</p></li>
-          <li><p>Footswitches</p></li>
-          <li><p>Indicators</p></li>
-
-    </ul>
-  )
-}
 
 function Modal(props) {
   return (
@@ -34,9 +23,8 @@ function PedalBuilder() {
       {showModal && (
         <Modal closeModal={() => setShowModal(false)} />
       )}
-      <div className="components">
-        <ComponentList openModal={() => setShowModal(true)}/>
-      </div>
+
+      <ComponentBlockList openModal={() => setShowModal(true)}/>
       <div className="workspace">
         <Pedal/>
       </div>
