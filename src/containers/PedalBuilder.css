@@ -1,0 +1,53 @@
+  
+div.container {
+  --h1: .25rem;
+  --h2: -.25rem;
+  --blur1: .5rem;
+  --blur2: .5rem;
+  --color-light: rgb(170, 177, 177);
+  --color-dark: rgb(13, 23, 23);  
+  background-color: #282c34;
+  width: 70%;
+  height: 500px;
+  margin: 4rem auto 0 auto;
+  border-radius: 4px;
+
+  box-shadow: var(--h1) var(--h1) var(--blur1) var(--color-dark), 
+              var(--h2) var(--h2) var(--blur2) var(--color-light);
+
+  display: grid;
+  grid-template-columns: 20% auto;
+
+}
+
+div.components {
+  overflow: scroll;
+  background-color: #353c37;
+  padding: 0;
+  margin: 0;
+}
+
+div.workspace {
+  margin: auto;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  text-decoration: none;
+  list-style: none;
+  height: 3rem;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: inset var(--h1) var(--h1) var(--blur1) var(--color-dark), 
+              inset var(--h2) var(--h2) var(--blur2) var(--color-light);
+}
