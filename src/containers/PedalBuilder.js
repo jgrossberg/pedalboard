@@ -1,30 +1,43 @@
 import React, {useState} from 'react';
 import './PedalBuilder.css';
 import Pedal from '../components/Pedal';
+import ComponentModal from '../components/ComponentModal';
+
 import ComponentBlockList from '../components/ComponentBlockList';
 
 
 
-
-function Modal(props) {
-  return (
-    <div className='modal'>
-          <button tabIndex='0' onClick={props.closeModal}>Close Modal</button>
-    </div>
-  )
-}
+const COMPONENTS = [
+  'Colors',
+  'Cases',
+  'Knobs',
+  'Footswitches',
+  'Indicators'
+]
 
 function PedalBuilder() {
   const [showModal, setShowModal] = useState(false);
+  const [openComponent, setOpenComponent] = useState();
   
+  const handleComponentSelect = (event) => {
+    setOpenComponent(event.target.innerHTML)
+    setShowModal(true)
+  }
 
   return (
     <div className="container">
       {showModal && (
-        <Modal closeModal={() => setShowModal(false)} />
+        <ComponentModal
+          closeModal={() => setShowModal(false)}
+          openComponent={openComponent}
+        />
       )}
 
-      <ComponentBlockList openModal={() => setShowModal(true)}/>
+      <ComponentBlockList 
+        componentSelect={handleComponentSelect}
+        components={COMPONENTS}
+      />
+      
       <div className="workspace">
         <Pedal/>
       </div>

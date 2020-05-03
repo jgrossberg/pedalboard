@@ -2,19 +2,19 @@ import React from 'react';
 import './ComponentBlockList.css';
 
 
+
 function ComponentBlockList(props) {
+  const listItems = props.components.map(component => 
+    <li><p onClick={props.componentSelect}>{component}</p></li>
+  )
+
   return (
     <div>
       <ul>
-        <li><p onClick={props.openModal}>Colors</p></li>
-        <li><p>Cases</p></li>
-        <li><p>Knobs</p></li>
-        <li><p>Footswitches</p></li>
-        <li><p>Indicators</p></li>
-
+        {listItems}
       </ul>
     </div>
   )
 }
 
-  export default ComponentBlockList;
+export default ComponentBlockList;
